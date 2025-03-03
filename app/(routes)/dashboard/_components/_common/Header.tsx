@@ -58,8 +58,7 @@ const Header = () => {
            text-lg font-medium flex justify-between flex-row"
       >
         <div
-          className="flex flex-1 items-center mr-5 pr-8 
-         border-r border-gray-600"
+          className="flex flex-1 items-center mr-5 pr-8 "
         >
           <Logo url="/dashboard" />
           <span className="sr-only">FormatriX</span>
