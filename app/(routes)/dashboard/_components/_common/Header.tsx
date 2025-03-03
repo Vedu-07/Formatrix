@@ -32,12 +32,12 @@ const Header = () => {
     {
       name: "Builder",
       pathname: `/dashboard/form/builder/${formId}`,
-      isDisabled: true,
+      isDisabled: false,
     },
     {
       name: "Responds",
       pathname: `/dashboard/form/responds/${formId}`,
-      isDisabled: true,
+      isDisabled: false,
     },
     {
       name: "Settings",
@@ -63,7 +63,7 @@ const Header = () => {
           <Logo url="/dashboard" />
           <span className="sr-only">FormatriX</span>
         </div>
-        <ul className="hidden md:flex flex-row">
+        <ul className="hidden md:flex flex-row ">
           {NAV_MENUS.map((item, idx) => (
             <li key={idx} className="relative h-full">
               <Link
@@ -72,8 +72,8 @@ const Header = () => {
                   `
                     text-white/90 text-[15.5px]
               font-normal z-[999] flex items-center px-3
-              justify-center h-full transition-colors 
-              hover:text-opacity-90
+              justify-center h-full transition-all 
+              hover:font-semibold
                         `,
                   {
                     "opacity-80 !pointer-events-none": item.isDisabled,
@@ -93,7 +93,8 @@ const Header = () => {
                           transition-colors
                           ease-in-out
                           rounded-b-xl
-                          -z-[1]"
+                          -z-[1]
+                          font-semibold"
                 />
               )}
             </li>
