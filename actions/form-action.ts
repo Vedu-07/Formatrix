@@ -296,6 +296,44 @@ export async function fetchPublishFormById(formId: string): Promise<{
   }
 }
 
+export async function fetchAllResponseByFormId(formId: string) {
+    try {
+      const session = getKindeServerSession();
+      const user = await session.getUser();
+  
+      if (!user) {
+        return {
+          success: false,
+          message: "Unauthorized to use this resource",
+        };
+      }
+  
+      const form = await prisma.form.findUnique({
+        where: {
+          formId: formId,
+        },
+        include: {
+          formResponses: {
+            orderBy: {
+              createdAt: "desc",
+            },
+          },
+        },
+      });
+  
+      return {
+        success: true,
+        message: "Form fetched successfully",
+        form,
+      };
+    } catch (error) {
+      return {
+        success: false,
+        message: "Something went wrong",
+      };
+    }
+  }
+
 export async function submitResponse(formId: string, response: string) {
   try {
     if (!formId) {
@@ -332,40 +370,4 @@ export async function submitResponse(formId: string, response: string) {
   }
 }
 
-export async function fetchAllResponseByFormId(formId: string) {
-  try {
-    const session = getKindeServerSession();
-    const user = await session.getUser();
 
-    if (!user) {
-      return {
-        success: false,
-        message: "Unauthorized to use this resource",
-      };
-    }
-
-    const form = await prisma.form.findUnique({
-      where: {
-        formId: formId,
-      },
-      include: {
-        formResponses: {
-          orderBy: {
-            createdAt: "desc",
-          },
-        },
-      },
-    });
-
-    return {
-      success: true,
-      message: "Form fetched successfully",
-      form,
-    };
-  } catch (error) {
-    return {
-      success: false,
-      message: "Something went wrong",
-    };
-  }
-}
