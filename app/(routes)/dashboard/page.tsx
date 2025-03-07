@@ -1,6 +1,6 @@
-import React, { Suspense } from "react";
+import  { Suspense } from "react";
 import { fetchAllForms, fetchFormStats } from "@/actions/form-action";
-import StatsCards from "./_components/StatsCards";
+import StatsCards from "./_components/StatsCard";
 import { Separator } from "@/components/ui/separator";
 import CreateForm from "./_components/CreateForm";
 import { Loader } from "lucide-react";
@@ -23,7 +23,7 @@ const Dashboard = () => {
         </div>
 
 
-        {/* {ALL FORM} */}
+        {/* All Forms Fetching */}
 
         <section className="w-full pt-7 pb-10">
           <div

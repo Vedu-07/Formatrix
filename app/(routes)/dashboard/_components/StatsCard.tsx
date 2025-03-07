@@ -7,7 +7,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Loader } from "lucide-react";
-import React from "react";
 
 const StatsCards = (props: {
   data: Awaited<ReturnType<typeof fetchFormStats>>;
@@ -40,7 +39,7 @@ const StatsCards = (props: {
         </CardContent>
       </Card>
 
-      {/* {Responses} */}
+      {/* Responses Card */}
       <Card className="bg-white">
         <CardHeader className="pb-2">
           <CardDescription>Total Responses</CardDescription>
@@ -59,7 +58,7 @@ const StatsCards = (props: {
         </CardContent>
       </Card>
 
-      {/* {Conversion Rate} */}
+      {/* Conversion Rate Card */}
       <Card className="bg-white">
         <CardHeader className="pb-2">
           <CardDescription>Conversion Rate</CardDescription>
@@ -78,7 +77,7 @@ const StatsCards = (props: {
         </CardContent>
       </Card>
 
-      {/* {Engagement Rate} */}
+      {/* Engagement Rate Card */}
       <Card className="bg-white">
         <CardHeader className="pb-2">
           <CardDescription>Engagement Rate</CardDescription>
