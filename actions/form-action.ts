@@ -1,9 +1,13 @@
 "use server";
 
-
+import { defaultBackgroundColor, defaultPrimaryColor } from "@/constant";
+import { generateUniqueId } from "@/lib/helper";
 import { prisma } from "@/lib/prismadb";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
+// Server Side Functions For Interacting With Databases
+
+// This function interacts with the form table in the database and aggregates data like total views and responses.
 export async function fetchFormStats() {
   try {
     const session = getKindeServerSession();
@@ -51,3 +55,83 @@ export async function fetchFormStats() {
   }
 }
 
+// This functions help creating new form and updating in database
+export async function createForm(data: { name: string; description: string }) {
+  try {
+    const session = getKindeServerSession();
+    const user = await session.getUser();
+    if (!user) {
+      return {
+        success: false,
+        message: "Unauthorized to use this resource",
+      };
+    }
+
+    const jsonBlocks = JSON.stringify([
+      {
+        id: generateUniqueId(),
+        blockType: "RowLayout",
+        attributes: {},
+        isLocked: true,
+        childblocks: [
+          {
+            id: generateUniqueId(),
+            blockType: "Heading",
+            attributes: {
+              label: data.name || "Untitled form",
+              level: 1,
+              fontSize: "4x-large",
+              fontWeight: "normal",
+            },
+          },
+          {
+            id: generateUniqueId(),
+            blockType: "Paragraph",
+            attributes: {
+              label: "Paragraph",
+              text: data.description || "Add a description here.",
+              fontSize: "small",
+              fontWeight: "normal",
+            },
+          },
+        ],
+      },
+    ]);
+
+    const formSettings = await prisma.formSettings.create({
+      data: {
+        primaryColor: defaultPrimaryColor,
+        backgroundColor: defaultBackgroundColor,
+      },
+    });
+
+    const form = await prisma.form.create({
+      data: {
+        name: data.name,
+        description: data.description,
+        userId: user.id,
+        creatorName: user?.given_name || "",
+        settingsId: formSettings.id,
+        jsonBlocks,
+      },
+    });
+
+    if (!form) {
+      return {
+        success: false,
+        message: "Could not create form, please try again",
+      };
+    }
+
+    return {
+      success: true,
+      message: "Form created successfully",
+      form,
+    };
+  } catch (e) {
+    return {
+      success: false,
+      message: "Something went wrong",
+    };
+  }
+}
