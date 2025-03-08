@@ -20,8 +20,8 @@ const SideMenu = () => {
       icon: Blocks,
     },
     {
-      title: "Reponds",
-      url: `/dashboard/form/responds/${formId}`,
+      title: "Reponses",
+      url: `/dashboard/form/responses/${formId}`,
       icon: MessageSquare,
     },
   ];

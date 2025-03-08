@@ -34,8 +34,8 @@ const Header = () => {
       isDisabled: false,
     },
     {
-      name: "Responds",
-      pathname: `/dashboard/form/responds/${formId}`,
+      name: "Responses",
+      pathname: `/dashboard/form/responses/${formId}`,
       isDisabled: false,
     },
     {

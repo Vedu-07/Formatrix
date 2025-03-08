@@ -125,8 +125,7 @@ const FormItem = (props: PropsType) => {
           </div>
           <span
             className="text-muted-foreground flex
-                  gap-1 text-[13px]
-                  "
+                  gap-1 text-[13px]"
           >
             {formatDistanceToNowStrict(new Date(createdAt), {
               addSuffix: true,
