@@ -99,9 +99,9 @@ const BuilderSidebar = ({
               Settings
             </button>
           </div>
-          {/* {Form Blocks} */}
+          {/* Formblocks */}
           {tab === "blocks" && <FormBlockBox />}
-          {/* {Form Settings} */}
+          {/* Form settings */}
           {tab === "settings" && <FormSettings />}
         </div>
       </SidebarContent>
