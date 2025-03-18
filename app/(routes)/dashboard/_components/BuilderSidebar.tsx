@@ -18,14 +18,14 @@ import { cn } from "@/lib/utils";
 import { FileTextIcon, Home } from "lucide-react";
 import FormBlockBox from "./_common/FormBlockBox";
 import FormSettings from "./_common/FormSettings";
-// import { useBuilder } from "@/context/builder-provider";
+import { useBuilder } from "@/context/builder-provider";
 
 const BuilderSidebar = ({
   rest,
 }: {
   rest?: React.ComponentProps<typeof Sidebar>;
 }) => {
-//   const { formData } = useBuilder();
+  const { formData } = useBuilder();
 
   const [tab, setTab] = useState<"blocks" | "settings">("blocks");
 
@@ -50,7 +50,7 @@ const BuilderSidebar = ({
                   <BreadcrumbPage className="flex items-center gap-1">
                     <FileTextIcon className="w-4 h-4 mb-[3px]" />
                     <h5 className="truncate flex w-[110px] text-sm">
-                      {/* {formData?.name || "Untitled"} */}
+                      {formData?.name || "Untitled"}
                     </h5>
                   </BreadcrumbPage>
                 </BreadcrumbItem>
@@ -99,9 +99,9 @@ const BuilderSidebar = ({
               Settings
             </button>
           </div>
-          {/* Formblocks */}
+          {/* {Form Blocks} */}
           {tab === "blocks" && <FormBlockBox />}
-          {/* Form settings */}
+          {/* {Form Settings} */}
           {tab === "settings" && <FormSettings />}
         </div>
       </SidebarContent>
