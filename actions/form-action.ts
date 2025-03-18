@@ -173,3 +173,44 @@ export async function fetchAllForms() {
       };
     }
   }
+
+
+
+
+// This form is used to publish form
+export async function updatePublish(formId: string, published: boolean) {
+    try {
+      const session = getKindeServerSession();
+      const user = await session.getUser();
+  
+      if (!user) {
+        return {
+          success: false,
+          message: "Unauthorized to use this resource",
+        };
+      }
+  
+      if (!formId) {
+        return {
+          success: false,
+          message: "FormId is required",
+        };
+      }
+  
+      const form = await prisma.form.update({
+        where: { formId },
+        data: { published },
+      });
+  
+      return {
+        success: true,
+        message: `Form successfully ${published ? "published" : "unpublished"}`,
+        published: form.published,
+      };
+    } catch (error) {
+      return {
+        success: false,
+        message: "Failed to update publish status",
+      };
+    }
+  }
