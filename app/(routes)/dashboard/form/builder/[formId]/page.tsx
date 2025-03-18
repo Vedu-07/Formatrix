@@ -1,4 +1,4 @@
-import FormBuilder from "../../../_components/_common/FormBuilder";
+import FormBuilder from "../../../_components/FormBuilder";
 
 const Builder = () => {
     return <FormBuilder/>
