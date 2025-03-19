@@ -148,8 +148,7 @@ const AIAssistanceBtn = () => {
                 className="shadow-sm block w-full 
                 sm:text-sm border-gray-300 rounded-md 
                 focus:ring-primary"
-                placeholder="Describe the form or questions 
-                you want to generate with AI..."
+                placeholder="Describe the form or questions you want to generate with AI..."
                 spellCheck="false"
                 onChange={(e) => {
                   setUserRequest(e.target.value);
