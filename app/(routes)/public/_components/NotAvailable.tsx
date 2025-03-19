@@ -26,7 +26,7 @@ const NotAvaliable = () => {
          text-[20px] text-primary"
         >
           {" "}
-          Formatrix
+          FormatriX
         </h5>
       </div>
     </div>
