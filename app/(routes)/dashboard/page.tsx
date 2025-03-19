@@ -47,18 +47,18 @@ const Dashboard = () => {
            xl:grid-cols-5
            "
           >
+
             <Suspense
-              fallback={[1, 2, 3, 4].map((item) => (
+              fallback={[1].map((item) => (
                 <Loader size="3rem" className="animate-spin" />
               ))}
             >
               <FormList />
             </Suspense>
+
           </div>
 
-          <div className="flex items-center justify-center">
-            No form created
-          </div>
+
         </section>
       </div>
     </div>
@@ -72,6 +72,9 @@ async function StatsListWrap() {
 
 async function FormList() {
   const { form } = await fetchAllForms();
+  if (!form || form.length === 0) {
+    return <div className="flex items-center justify-center">No form created</div>;
+  }
   return (
     <>
       {form?.map((form) => (
