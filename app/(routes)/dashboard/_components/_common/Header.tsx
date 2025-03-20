@@ -35,14 +35,14 @@ const Header = () => {
     },
     {
       name: "Responses",
-      pathname: `/dashboard/form/responses/${formId}`,
+      pathname: `/dashboard/form/response/${formId}`,
       isDisabled: false,
     },
-    {
-      name: "Settings",
-      pathname: "#",
-      isDisabled: false,
-    },
+    // {
+    //   name: "Settings",
+    //   pathname: "#",
+    //   isDisabled: false,
+    // },
   ];
 
   return (
