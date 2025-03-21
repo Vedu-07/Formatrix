@@ -5,7 +5,6 @@ import { defaultBackgroundColor, defaultPrimaryColor } from "@/constant";
 import { generateUniqueId } from "@/lib/helper";
 import { prisma } from "@/lib/prismadb";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { NextApiRequest, NextApiResponse } from "next";
 
 // Server Side Functions For Interacting With Databases
 
@@ -382,6 +381,7 @@ export async function updatePublish(formId: string, published: boolean) {
       };
     }
   }
+
 
 // funtion to delete form 
 export async function deleteForm(formId: string) {
