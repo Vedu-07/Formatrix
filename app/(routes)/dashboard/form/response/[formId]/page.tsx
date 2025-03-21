@@ -4,7 +4,7 @@ import { FormBlockInstance } from "@/@types/form-block.type";
 import { Button } from "@/components/ui/button";
 import { Link } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import AllReponds from "../_components/AllResponses";
+import Allresponses from "../_components/AllResponses";
 
 const Responds = async ({ params }: { params: { formId: string } }) => {
   const { formId } = params;
@@ -60,7 +60,7 @@ const Responds = async ({ params }: { params: { formId: string } }) => {
               className="!border-[#eee]
              !bg-[#eee]"
             />
-            <AllReponds blocks={blocks} responses={responses} />
+            <Allresponses blocks={blocks} responses={responses} />
           </div>
         </div>
       </div>
@@ -69,3 +69,4 @@ const Responds = async ({ params }: { params: { formId: string } }) => {
 };
 
 export default Responds;
+

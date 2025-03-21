@@ -3,6 +3,7 @@ import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   ActivityIcon,
+  DownloadIcon,
   Globe,
   LockKeyholeIcon,
   MessageSquare,
@@ -10,7 +11,7 @@ import {
 } from "lucide-react";
 import { formatDistanceToNowStrict } from "date-fns";
 import { Skeleton } from "@/components/ui/skeleton";
-import { deleteForm } from "@/actions/form-action";
+import { deleteForm} from "@/actions/form-action";
 import {
   Dialog,
   DialogTrigger,
@@ -70,7 +71,9 @@ const FormItem = (props: PropsType) => {
       e.stopPropagation(); // Prevent navigation when clicking cancel
       setOpen(false); // Close the dialog
     };
-  
+    
+      
+      
     return (
       <div onClick={onClick} role="button" className="w-full h-auto">
         <div
@@ -109,7 +112,8 @@ const FormItem = (props: PropsType) => {
               )}
               {name}
             </span>
-  
+            
+
             {/* Delete Button (opens dialog) */}
             <Dialog open={open} onOpenChange={setOpen}>
               <DialogTrigger asChild>
@@ -149,6 +153,7 @@ const FormItem = (props: PropsType) => {
                 </DialogFooter>
               </DialogContent>
             </Dialog>
+            </div>
           </div>
   
           <div
@@ -173,7 +178,6 @@ const FormItem = (props: PropsType) => {
             </span>
           </div>
         </div>
-      </div>
     );
   };
   
