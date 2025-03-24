@@ -89,7 +89,7 @@ const BuilderSidebar = ({
                 transition-colors
                 ease-in-out rounded-full text-center
                 font-medium text-sm
-                              `,
+                `,
                 {
                   "bg-white": tab === "settings",
                 }

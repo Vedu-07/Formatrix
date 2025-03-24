@@ -21,7 +21,7 @@ const SideMenu = () => {
     },
     {
       title: "Reponses",
-      url: `/dashboard/form/responses/${formId}`,
+      url: `/dashboard/form/response/${formId}`,
       icon: MessageSquare,
     },
   ];
