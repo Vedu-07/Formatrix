@@ -65,22 +65,22 @@ To get started with Formatrix locally, follow these instructions.
 
 ## Features
 
-### AI-Powered Form Generation
+### 🧠 AI-Powered Form Generation
 Formatrix uses AI to help you create forms based on your desired structure, automating the process and saving you time.
 
-### Drag-and-Drop Form Creation
+### ✏️ Drag-and-Drop Form Creation
 The intuitive drag-and-drop editor allows you to build forms in minutes. No coding experience required!
 
-### Customizable Block Properties
+### 🎨 Customizable Block Properties
 Edit individual form elements like text fields, checkboxes, radio buttons, etc., with ease.
 
-### Analytics Tracking
+### 🌐 Analytics Tracking
 Track user responses and form performance with built-in analytics tools. Gain insights into your forms’ success.
 
-### Authentication
+### 🔐 Authentication
 User authentication is handled securely with Kinde, allowing for a personalized experience.
 
-### Deploy on Vercel
+### 📤 Deploy on Vercel
 The platform is designed to be deployed effortlessly on Vercel, offering continuous integration and global deployment.
 
 ---
