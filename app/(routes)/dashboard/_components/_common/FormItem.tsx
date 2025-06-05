@@ -3,7 +3,6 @@ import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   ActivityIcon,
-  DownloadIcon,
   Globe,
   LockKeyholeIcon,
   MessageSquare,
@@ -50,21 +49,40 @@ const FormItem = (props: PropsType) => {
     }, [loading, router, formId]);
   
     // Delete form function
+    // const handleDelete = async (e: React.MouseEvent) => {
+    //   e.stopPropagation(); // Prevent navigation when clicking delete
+    //   setLoading(true);
+  
+    //   const res = await deleteForm(formId);
+  
+    //   if (res.success) {
+    //     setOpen(false);
+    //     router.refresh(); // Refresh dashboard after deletion
+    //   } else {
+    //     alert(res.message);
+    //   }
+  
+    //   setLoading(false);
+    // };
     const handleDelete = async (e: React.MouseEvent) => {
-      e.stopPropagation(); // Prevent navigation when clicking delete
+      e.stopPropagation();
       setLoading(true);
-  
+      console.log("Delete started...");
+    
       const res = await deleteForm(formId);
-  
+    
+      console.log("Delete response:", res);
+    
       if (res.success) {
         setOpen(false);
-        router.refresh(); // Refresh dashboard after deletion
+        router.refresh();
       } else {
-        alert(res.message);
+        alert(res.message || "Something went wrong.");
       }
-  
+    
       setLoading(false);
     };
+    
   
     // Cancel delete
     const handleCancelDelete = (e: React.MouseEvent) => {

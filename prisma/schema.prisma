@@ -62,7 +62,7 @@ model FormResponses {
   jsonReponse     String
 
   formId          Int
-  form            Form               @relation(fields: [formId], references: [id])
+  form            Form               @relation(fields: [formId], references: [id], onDelete: Cascade)
   createdAt       DateTime           @default(now())
 
 }

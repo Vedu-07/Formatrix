@@ -57,44 +57,6 @@ const StatsCards = (props: {
           </div>
         </CardContent>
       </Card>
-
-      {/* Conversion Rate Card */}
-      <Card className="bg-white">
-        <CardHeader className="pb-2">
-          <CardDescription>Conversion Rate</CardDescription>
-          <CardTitle className="text-4xl">
-            {loading ? (
-              <Loader className="h-[36px] animate-spin" />
-            ) : (
-              <>{data?.conversionRate?.toFixed(1)}%</>
-            )}
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="text-xs text-muted-foreground">
-            % of views that resulted in responses
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Engagement Rate Card */}
-      <Card className="bg-white">
-        <CardHeader className="pb-2">
-          <CardDescription>Engagement Rate</CardDescription>
-          <CardTitle className="text-4xl">
-            {loading ? (
-              <Loader className="h-[36px] animate-spin" />
-            ) : (
-              <>{data?.engagementRate?.toFixed(1)}%</>
-            )}
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="text-xs text-muted-foreground">
-            % of forms that received responses
-          </div>
-        </CardContent>
-      </Card>
     </div>
   );
 };

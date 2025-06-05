@@ -4,7 +4,7 @@ import {
   } from "@kinde-oss/kinde-auth-nextjs/components"; 
 export default function Hero() {
     return (
-        <section className="py-24 ">
+        <section className="py-24 " id="hero">
             <div className="container">
                 <div className="flex justify-center">
                     <div className="inline-flex py-1 px-3 bg-gradient-to-r from-purple-300 to-pink-400 rounded-full text-neutral-950 font-semibold">

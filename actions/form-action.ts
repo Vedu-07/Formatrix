@@ -384,59 +384,114 @@ export async function updatePublish(formId: string, published: boolean) {
 
 
 // funtion to delete form 
+// export async function deleteForm(formId: string) {
+//     try {
+//       const session = getKindeServerSession();
+//       const user = await session.getUser();
+  
+//       if (!user) {
+//         return {
+//           success: false,
+//           message: "Unauthorized to use this resource",
+//         };
+//       }
+  
+//       if (!formId) {
+//         return {
+//           success: false,
+//           message: "FormId is required",
+//         };
+//       }
+  
+//       // Check if the form belongs to the user
+//       const form = await prisma.form.findUnique({
+//         where: { formId },
+//         select: { userId: true },
+//       });
+  
+//       if (!form) {
+//         return {
+//           success: false,
+//           message: "Form not found",
+//         };
+//       }
+  
+//       if (form.userId !== user.id) {
+//         return {
+//           success: false,
+//           message: "You are not authorized to delete this form",
+//         };
+//       }
+  
+//       // Delete the form and related data
+//       await prisma.form.delete({
+//         where: { formId },
+//       });
+  
+//       return {
+//         success: true,
+//         message: "Form deleted successfully",
+//       };
+//     } catch (error) {
+//       return {
+//         success: false,
+//         message: "Something went wrong",
+//       };
+//     }
+//   }
+  
+
 export async function deleteForm(formId: string) {
-    try {
-      const session = getKindeServerSession();
-      const user = await session.getUser();
-  
-      if (!user) {
-        return {
-          success: false,
-          message: "Unauthorized to use this resource",
-        };
-      }
-  
-      if (!formId) {
-        return {
-          success: false,
-          message: "FormId is required",
-        };
-      }
-  
-      // Check if the form belongs to the user
-      const form = await prisma.form.findUnique({
-        where: { formId },
-        select: { userId: true },
-      });
-  
-      if (!form) {
-        return {
-          success: false,
-          message: "Form not found",
-        };
-      }
-  
-      if (form.userId !== user.id) {
-        return {
-          success: false,
-          message: "You are not authorized to delete this form",
-        };
-      }
-  
-      // Delete the form and related data
-      await prisma.form.delete({
-        where: { formId },
-      });
-  
-      return {
-        success: true,
-        message: "Form deleted successfully",
-      };
-    } catch (error) {
+  try {
+    const session = getKindeServerSession();
+    const user = await session.getUser();
+
+    if (!user) {
       return {
         success: false,
-        message: "Something went wrong",
+        message: "Unauthorized to use this resource",
       };
     }
+
+    if (!formId) {
+      return {
+        success: false,
+        message: "FormId is required",
+      };
+    }
+
+    const form = await prisma.form.findUnique({
+      where: { formId }, // OR use `id` if it's the primary key
+      select: { userId: true },
+    });
+
+    if (!form) {
+      return {
+        success: false,
+        message: "Form not found",
+      };
+    }
+
+    if (form.userId !== user.id) {
+      return {
+        success: false,
+        message: "You are not authorized to delete this form",
+      };
+    }
+
+    await prisma.form.delete({
+      where: { formId }, // OR use `id`
+    });
+
+    return {
+      success: true,
+      message: "Form deleted successfully",
+    };
+  } catch (error) {
+    console.error("Delete form error:", error); // ADD THIS
+    return {
+      success: false,
+      message: "Something went wrong",
+    };
   }
-  
+}

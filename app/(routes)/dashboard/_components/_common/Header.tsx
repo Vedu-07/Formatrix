@@ -16,6 +16,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ChevronDown, LogInIcon } from "lucide-react";
 
+
 const Header = () => {
   const { user } = useKindeBrowserClient();
 
