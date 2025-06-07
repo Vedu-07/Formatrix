@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import React from "react";
 import { fetchAllResponseByFormId } from "@/actions/form-action";
 import { FormBlockInstance } from "@/@types/form-block.type";
