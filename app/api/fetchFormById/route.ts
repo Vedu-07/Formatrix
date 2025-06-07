@@ -58,6 +58,10 @@
 // }
 
 // app/api/fetchFormById/route.ts
+
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { NextResponse } from "next/server";
 import { fetchFormByIdForUser } from "@/lib/fetchform";
