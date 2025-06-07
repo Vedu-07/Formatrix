@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import React from "react";
 import FormBuilder from "../../../_components/FormBuilder";
 import BuilderContextProvider from "@/context/builder-provider";

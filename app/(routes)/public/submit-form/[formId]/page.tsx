@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+
+
 import { fetchPublishFormById } from "@/actions/form-action";
 import React from "react";
 import NotAvaliable from "../../_components/NotAvailable";

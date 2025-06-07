@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import  { Suspense } from "react";
 import { fetchAllForms, fetchFormStats } from "@/actions/form-action";
 import StatsCards from "./_components/StatsCard";
